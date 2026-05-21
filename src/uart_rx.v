@@ -10,7 +10,7 @@ module uart_rx #(
     output reg rec_readyH,
     output reg rec_busy,
   
-    output reg [DATA_WIDTH-1:0] rec_dataH
+	output reg [DATA_WIDTH-1:0] rec_dataH 
 );
 
   localparam IDLE  = 2'b00;
@@ -58,8 +58,7 @@ end
 
         rec_readyH <= 1;
         rec_busy   <= 0;
-        
-        rec_dataH  <= {DATA_WIDTH{1'b0}};
+		rec_dataH  <= {DATA_WIDTH{1'b0}};
 		
         temp_data <= {DATA_WIDTH{1'b0}};
         data_index <= 0;
@@ -76,8 +75,6 @@ end
             
             rec_readyH <= 1;
             rec_busy   <= 0;
-          
-            rec_dataH  <= {DATA_WIDTH{1'b0}};
 
             temp_data  <= 0;
             data_index <= 0;
@@ -86,7 +83,8 @@ end
             
 
             if(!rx_sync2) begin
-              
+
+			  rec_dataH  <= {DATA_WIDTH{1'b0}};
               state <= START;
 
             end
