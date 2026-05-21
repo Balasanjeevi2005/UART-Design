@@ -158,16 +158,10 @@ end
           if(count==4'hF) begin
             
             count <= 0;
-            
-            if(rx_sync2 == 1'b1)begin
-              
-              rec_busy <= 1'b0;
-		      rec_readyH <= 1'b1;
-              state <= IDLE;
-                           
-            end
-            else
-              state <= IDLE;
+            rec_busy <= 1'b0;
+		    rec_readyH <= 1'b1;
+            state <= IDLE;
+                    
 
           end
           
